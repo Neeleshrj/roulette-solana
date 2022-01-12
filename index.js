@@ -35,7 +35,7 @@ const gameExecution = () => {
   var ratio = 0;
   var returnAmt = 0;
 
-  console.log("The max amount to bet is 2.5 Sol");
+  console.log("The max start amount to bet is 0.5 Sol");
 
   var questions = [
     {
@@ -73,8 +73,9 @@ const gameExecution = () => {
         var rand = randomNumber(1, 5);
         console.log("Spinning the wheel.....");
         setTimeout(async () => {
+          console.log("Your bet is", answers["guess"]);
           console.log("The number is", rand);
-          if (rand === answers["guess"]) {
+          if (rand.toString() === answers["guess"]) {
             console.log("You won!");
             await transfer(treasuryWallet,userWallet,returnAmt)
             await getWalletBalance(publicKey1)
